@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace AdventOfCode2020.Day3
 {
@@ -22,18 +20,37 @@ namespace AdventOfCode2020.Day3
 
         public object ResolvePartOne()
         {
+            var totalTrees = GetTotalTrees(3 ,1);
+            return totalTrees;
+        }
+
+        public object ResolvePartTwo()
+        {
+            var results = new long[] 
+            {
+                 GetTotalTrees(1, 1),
+                 GetTotalTrees(3, 1),
+                 GetTotalTrees(5, 1),
+                 GetTotalTrees(7, 1),
+                 GetTotalTrees(1, 2)
+            };
+
+            var treesMultiplied = results.Aggregate((ac, x) => ac * x);
+            return treesMultiplied;
+        }
+
+        private int GetTotalTrees(int xIncrement, int yIncrement)
+        {
             var posX = 0;
             var posY = 0;
-            var XIncrement = 3;
-            var YIncrement = 1;
 
             var totalTrees = 0;
-            while(posY < _map.Length)
+            while (posY < _map.Length)
             {
-                posX += XIncrement;
-                posY += YIncrement;
+                posX += xIncrement;
+                posY += yIncrement;
 
-                if(posX > _mapWidth - 1)
+                if (posX > _mapWidth - 1)
                 {
                     posX -= _mapWidth;
                 }
@@ -42,19 +59,14 @@ namespace AdventOfCode2020.Day3
                 {
                     totalTrees++;
                 }
-                
-                if(posY >= _mapHeight - 1)
+
+                if (posY >= _mapHeight - 1)
                 {
                     break;
                 }
             }
 
             return totalTrees;
-        }
-
-        public object ResolvePartTwo()
-        {
-            throw new NotImplementedException();
         }
     }
 }
