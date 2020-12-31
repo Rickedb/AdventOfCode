@@ -1,10 +1,9 @@
 ﻿using AdventOfCode2020.Day1;
 using AdventOfCode2020.Day2;
+using AdventOfCode2020.Day3;
 using System;
 using System.IO;
 using System.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
 
 namespace AdventOfCode2020
 {
@@ -13,7 +12,8 @@ namespace AdventOfCode2020
         static void Main(string[] args)
         {
             //RunDay1();
-            RunDay2();
+            //RunDay2();
+            RunDay3();
             Console.WriteLine("Press any key to exit");
             Console.ReadKey();
         }
@@ -43,6 +43,19 @@ namespace AdventOfCode2020
 
             result = resolver.ResolvePartTwo();
             Console.WriteLine($"[{nameof(Day2Resolver)} - Part Two] => Result: {result}");
+        }
+
+        static void RunDay3()
+        {
+            var reader = new StreamReader("./Day3/Input.txt");
+            var input = reader.ReadToEnd().Split("\r\n");
+
+            var resolver = new Day3Resolver(input);
+            var result = resolver.ResolvePartOne();
+            Console.WriteLine($"[{nameof(Day3Resolver)} - Part One] => Result: {result}");
+
+            //result = resolver.ResolvePartTwo();
+            //Console.WriteLine($"[{nameof(Day3Resolver)} - Part Two] => Result: {result}");
         }
     }
 }
