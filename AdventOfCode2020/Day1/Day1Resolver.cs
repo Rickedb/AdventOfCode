@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace AdventOfCode2020.Day1
 {
+    /// <summary>
+    /// Check https://adventofcode.com/2020/day/1
+    /// </summary>
     public class Day1Resolver : IAdventResolver
     {
         private readonly IEnumerable<int> _values;
