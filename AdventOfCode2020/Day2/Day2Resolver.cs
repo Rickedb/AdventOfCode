@@ -33,14 +33,27 @@ namespace AdventOfCode2020.Day2
 
         public object ResolvePartTwo()
         {
-            throw new NotImplementedException();
+            int totalValidPasswords = 0;
+            foreach (var combination in _passwordsCombinations)
+            {
+                var (Password, Character, FirstCharacterIndex, SecondCharacterIndex) = ParseCombination(combination);
+
+
+                if((Password[FirstCharacterIndex - 1] == Character && Password[SecondCharacterIndex - 1] != Character) ||
+                   (Password[FirstCharacterIndex - 1] != Character && Password[SecondCharacterIndex - 1] == Character))
+                {
+                    totalValidPasswords++;
+                }
+            }
+
+            return totalValidPasswords;
         }
 
-        private (string Password, char Character, int AtLeast, int MaxTimes) ParseCombination(string combination)
+        private (string Password, char Character, int FirstValue, int SecondValue) ParseCombination(string combination)
         {
             var splittedCombination = combination.Split(':');
             var validation = splittedCombination[0];
-            var password = splittedCombination[1];
+            var password = splittedCombination[1].Trim();
 
             var splittedValidation = validation.Split(' ');
             var range = splittedValidation[0];

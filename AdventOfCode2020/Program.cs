@@ -41,8 +41,8 @@ namespace AdventOfCode2020
             var result = resolver.ResolvePartOne();
             Console.WriteLine($"[{nameof(Day2Resolver)} - Part One] => Result: {result}");
 
-            //result = resolver.ResolvePartTwo();
-            //Console.WriteLine($"[{nameof(Day2Resolver)} - Part Two] => Result: {result}");
+            result = resolver.ResolvePartTwo();
+            Console.WriteLine($"[{nameof(Day2Resolver)} - Part Two] => Result: {result}");
         }
     }
 }
