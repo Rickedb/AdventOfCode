@@ -13,79 +13,33 @@ namespace AdventOfCode2020
     {
         static void Main(string[] args)
         {
-            //RunDay1();
-            //RunDay2();
-            //RunDay3();
-            //RunDay4();
-            RunDay5();
+            var resolvers = new IAdventResolver[]
+            {
+                new Day1Resolver(GetFile<Day1Resolver>().Split("\r\n").Select(x => int.Parse(x))),
+                new Day2Resolver(GetFile<Day2Resolver>().Split("\r\n")),
+                new Day3Resolver(GetFile<Day3Resolver>().Split("\r\n")),
+                new Day4Resolver(GetFile<Day4Resolver>()),
+                new Day5Resolver(GetFile<Day5Resolver>().Split("\r\n")),
+            };
+
+            foreach(var resolver in resolvers)
+            {
+                var resolverName = resolver.GetType().Name;
+                var result = resolver.ResolvePartOne();
+                Console.WriteLine($"[{resolverName} - Part One] => Result: {result}");
+
+                result = resolver.ResolvePartTwo();
+                Console.WriteLine($"[{resolverName} - Part Two] => Result: {result}");
+            }
+
             Console.WriteLine("Press any key to exit");
             Console.ReadKey();
         }
 
-
-        static void RunDay1()
+        static string GetFile<T>() where T : IAdventResolver
         {
-            var reader = new StreamReader("./Day1/Input.txt");
-            var input = reader.ReadToEnd().Split("\r\n").Select(x => int.Parse(x));
-
-            var resolver = new Day1Resolver(input);
-            var result = resolver.ResolvePartOne();
-            Console.WriteLine($"[{nameof(Day1Resolver)} - Part One] => Result: {result}");
-
-            result = resolver.ResolvePartTwo();
-            Console.WriteLine($"[{nameof(Day1Resolver)} - Part Two] => Result: {result}");
-        }
-
-        static void RunDay2()
-        {
-            var reader = new StreamReader("./Day2/Input.txt");
-            var input = reader.ReadToEnd().Split("\r\n");
-
-            var resolver = new Day2Resolver(input);
-            var result = resolver.ResolvePartOne();
-            Console.WriteLine($"[{nameof(Day2Resolver)} - Part One] => Result: {result}");
-
-            result = resolver.ResolvePartTwo();
-            Console.WriteLine($"[{nameof(Day2Resolver)} - Part Two] => Result: {result}");
-        }
-
-        static void RunDay3()
-        {
-            var reader = new StreamReader("./Day3/Input.txt");
-            var input = reader.ReadToEnd().Split("\r\n");
-
-            var resolver = new Day3Resolver(input);
-            var result = resolver.ResolvePartOne();
-            Console.WriteLine($"[{nameof(Day3Resolver)} - Part One] => Result: {result}");
-
-            result = resolver.ResolvePartTwo();
-            Console.WriteLine($"[{nameof(Day3Resolver)} - Part Two] => Result: {result}");
-        }
-
-        static void RunDay4()
-        {
-            var reader = new StreamReader("./Day4/Input.txt");
-            var input = reader.ReadToEnd();
-
-            var resolver = new Day4Resolver(input);
-            var result = resolver.ResolvePartOne();
-            Console.WriteLine($"[{nameof(Day4Resolver)} - Part One] => Result: {result}");
-
-            result = resolver.ResolvePartTwo();
-            Console.WriteLine($"[{nameof(Day4Resolver)} - Part Two] => Result: {result}");
-        }
-
-        static void RunDay5()
-        {
-            var reader = new StreamReader("./Day5/Input.txt");
-            var input = reader.ReadToEnd().Split("\r\n");
-
-            var resolver = new Day5Resolver(input);
-            var result = resolver.ResolvePartOne();
-            Console.WriteLine($"[{nameof(Day5Resolver)} - Part One] => Result: {result}");
-
-            result = resolver.ResolvePartTwo();
-            Console.WriteLine($"[{nameof(Day5Resolver)} - Part Two] => Result: {result}");
+            using var reader = new StreamReader($".{typeof(T).Name.Replace("Resolver", string.Empty)}/Input.txt");
+            return reader.ReadToEnd();
         }
     }
 }
