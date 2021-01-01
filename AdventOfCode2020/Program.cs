@@ -3,6 +3,7 @@ using AdventOfCode2020.Day2;
 using AdventOfCode2020.Day3;
 using AdventOfCode2020.Day4;
 using AdventOfCode2020.Day5;
+using AdventOfCode2020.Day6;
 using System;
 using System.IO;
 using System.Linq;
@@ -15,11 +16,12 @@ namespace AdventOfCode2020
         {
             var resolvers = new IAdventResolver[]
             {
-                new Day1Resolver(GetFile<Day1Resolver>().Split("\r\n").Select(x => int.Parse(x))),
-                new Day2Resolver(GetFile<Day2Resolver>().Split("\r\n")),
-                new Day3Resolver(GetFile<Day3Resolver>().Split("\r\n")),
-                new Day4Resolver(GetFile<Day4Resolver>()),
-                new Day5Resolver(GetFile<Day5Resolver>().Split("\r\n")),
+                //new Day1Resolver(GetFile<Day1Resolver>().Split("\r\n").Select(x => int.Parse(x))),
+                //new Day2Resolver(GetFile<Day2Resolver>().Split("\r\n")),
+                //new Day3Resolver(GetFile<Day3Resolver>().Split("\r\n")),
+                //new Day4Resolver(GetFile<Day4Resolver>()),
+                //new Day5Resolver(GetFile<Day5Resolver>().Split("\r\n")),
+                new Day6Resolver(GetFile<Day6Resolver>()),
             };
 
             foreach(var resolver in resolvers)
@@ -38,7 +40,7 @@ namespace AdventOfCode2020
 
         static string GetFile<T>() where T : IAdventResolver
         {
-            using var reader = new StreamReader($".{typeof(T).Name.Replace("Resolver", string.Empty)}/Input.txt");
+            using var reader = new StreamReader($"./{typeof(T).Name.Replace("Resolver", string.Empty)}/Input.txt");
             return reader.ReadToEnd();
         }
     }
