@@ -76,15 +76,5 @@ namespace AdventOfCode2020.Day6
 
             return declarationGroups;
         }
-
-        public class DeclarationGroup
-        {
-            public IEnumerable<DeclarationResponse> Responses { get; set; }
-        }
-
-        public class DeclarationResponse
-        {
-            public IEnumerable<char> QuestionsAnsweredWithYes { get; set; }
-        }
     }
 }
