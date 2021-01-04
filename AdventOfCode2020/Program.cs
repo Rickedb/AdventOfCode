@@ -1,12 +1,12 @@
-﻿using AdventOfCode2020.Day1;
-using AdventOfCode2020.Day2;
-using AdventOfCode2020.Day3;
-using AdventOfCode2020.Day4;
-using AdventOfCode2020.Day5;
-using AdventOfCode2020.Day6;
-using AdventOfCode2020.Day7;
-using AdventOfCode2020.Day8;
-using AdventOfCode2020.Day9;
+﻿using AdventOfCode2020.Day01;
+using AdventOfCode2020.Day02;
+using AdventOfCode2020.Day03;
+using AdventOfCode2020.Day04;
+using AdventOfCode2020.Day05;
+using AdventOfCode2020.Day06;
+using AdventOfCode2020.Day07;
+using AdventOfCode2020.Day08;
+using AdventOfCode2020.Day09;
 using System;
 using System.IO;
 using System.Linq;
@@ -19,15 +19,15 @@ namespace AdventOfCode2020
         {
             var resolvers = new IAdventResolver[]
             {
-                //new Day1Resolver(GetFile<Day1Resolver>().Split("\r\n").Select(x => int.Parse(x))),
-                //new Day2Resolver(GetFile<Day2Resolver>().Split("\r\n")),
-                //new Day3Resolver(GetFile<Day3Resolver>().Split("\r\n")),
-                //new Day4Resolver(GetFile<Day4Resolver>()),
-                //new Day5Resolver(GetFile<Day5Resolver>().Split("\r\n")),
-                //new Day6Resolver(GetFile<Day6Resolver>()),
-                //new Day7Resolver(GetFile<Day7Resolver>().Split("\r\n")),
-                //new Day8Resolver(GetFile<Day8Resolver>().Split("\r\n").ToArray()),
-                new Day9Resolver(GetFile<Day9Resolver>().Split("\r\n").Select(x => long.Parse(x))),
+                new Day01Resolver(GetFile<Day01Resolver>().Split("\r\n").Select(x => int.Parse(x))),
+                new Day02Resolver(GetFile<Day02Resolver>().Split("\r\n")),
+                new Day03Resolver(GetFile<Day03Resolver>().Split("\r\n")),
+                new Day04Resolver(GetFile<Day04Resolver>()),
+                new Day05Resolver(GetFile<Day05Resolver>().Split("\r\n")),
+                new Day06Resolver(GetFile<Day06Resolver>()),
+                new Day07Resolver(GetFile<Day07Resolver>().Split("\r\n")),
+                new Day08Resolver(GetFile<Day08Resolver>().Split("\r\n").ToArray()),
+                new Day09Resolver(GetFile<Day09Resolver>().Split("\r\n").Select(x => long.Parse(x))),
             };
 
             foreach(var resolver in resolvers)
