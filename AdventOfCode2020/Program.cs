@@ -7,6 +7,7 @@ using AdventOfCode2020.Day06;
 using AdventOfCode2020.Day07;
 using AdventOfCode2020.Day08;
 using AdventOfCode2020.Day09;
+using AdventOfCode2020.Day10;
 using System;
 using System.IO;
 using System.Linq;
@@ -19,15 +20,16 @@ namespace AdventOfCode2020
         {
             var resolvers = new IAdventResolver[]
             {
-                new Day01Resolver(GetFile<Day01Resolver>().Split("\r\n").Select(x => int.Parse(x))),
-                new Day02Resolver(GetFile<Day02Resolver>().Split("\r\n")),
-                new Day03Resolver(GetFile<Day03Resolver>().Split("\r\n")),
-                new Day04Resolver(GetFile<Day04Resolver>()),
-                new Day05Resolver(GetFile<Day05Resolver>().Split("\r\n")),
-                new Day06Resolver(GetFile<Day06Resolver>()),
-                new Day07Resolver(GetFile<Day07Resolver>().Split("\r\n")),
-                new Day08Resolver(GetFile<Day08Resolver>().Split("\r\n").ToArray()),
-                new Day09Resolver(GetFile<Day09Resolver>().Split("\r\n").Select(x => long.Parse(x))),
+                //new Day01Resolver(GetFile<Day01Resolver>().Split("\r\n").Select(int.Parse)),
+                //new Day02Resolver(GetFile<Day02Resolver>().Split("\r\n")),
+                //new Day03Resolver(GetFile<Day03Resolver>().Split("\r\n")),
+                //new Day04Resolver(GetFile<Day04Resolver>()),
+                //new Day05Resolver(GetFile<Day05Resolver>().Split("\r\n")),
+                //new Day06Resolver(GetFile<Day06Resolver>()),
+                //new Day07Resolver(GetFile<Day07Resolver>().Split("\r\n")),
+                //new Day08Resolver(GetFile<Day08Resolver>().Split("\r\n").ToArray()),
+                //new Day09Resolver(GetFile<Day09Resolver>().Split("\r\n").Select(long.Parse)),
+                new Day10Resolver(GetFile<Day10Resolver>().Split("\r\n").Select(int.Parse))
             };
 
             foreach(var resolver in resolvers)
