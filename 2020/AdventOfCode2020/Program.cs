@@ -11,6 +11,7 @@ using AdventOfCode2020.Day10;
 using AdventOfCode2020.Day11;
 using AdventOfCode2020.Day12;
 using AdventOfCode2020.Day13;
+using AdventOfCode2020.Day14;
 using System;
 using System.IO;
 using System.Linq;
@@ -35,7 +36,8 @@ namespace AdventOfCode2020
                 //new Day10Resolver(GetFile<Day10Resolver>().Split("\r\n").Select(int.Parse)),
                 //new Day11Resolver(GetFile<Day11Resolver>().Split("\r\n").ToList()),
                 //new Day12Resolver(GetFile<Day12Resolver>().Split("\r\n")),
-                new Day13Resolver(GetFile<Day13Resolver>().Split("\r\n")),
+                //new Day13Resolver(GetFile<Day13Resolver>().Split("\r\n")),
+                new Day14Resolver(GetFile<Day14Resolver>().Split("\r\n")),
             };
 
             foreach(var resolver in resolvers)
